@@ -1,0 +1,17 @@
+var inputName= $("#jgnumber").val();
+			if(inputName=="请输入9位组织机构代码……")
+			{
+			ymPrompt.alert("请输入组织机构代码");
+			}
+			else{
+			inputName=$.trim(inputName);
+			var reg=/^[A-Za-z0-9]+$/
+			if(number!=9||!reg.test(inputName))
+			{
+			ymPrompt.alert("请输入正确的组织机构代码");
+			}
+			else
+			{
+			window.location.href="jbxx.action?m=frontToGetDetailByJbId&id="+inputName;
+			
+			}
