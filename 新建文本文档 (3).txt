@@ -1,14 +1,14 @@
 var inputName= $("#jgnumber").val();
-			if(inputName=="ÇëÊäÈë9Î»×éÖ¯»ú¹¹´úÂë¡­¡­")
+			if(inputName=="è¯·è¾“å…¥9ä½ç»„ç»‡æœºæ„ä»£ç â€¦â€¦")
 			{
-			ymPrompt.alert("ÇëÊäÈë×éÖ¯»ú¹¹´úÂë");
+			ymPrompt.alert("è¯·è¾“å…¥ç»„ç»‡æœºæ„ä»£ç ");
 			}
 			else{
 			inputName=$.trim(inputName);
 			var reg=/^[A-Za-z0-9]+$/
 			if(number!=9||!reg.test(inputName))
 			{
-			ymPrompt.alert("ÇëÊäÈëÕıÈ·µÄ×éÖ¯»ú¹¹´úÂë");
+			ymPrompt.alert("è¯·è¾“å…¥æ­£ç¡®çš„ç»„ç»‡æœºæ„ä»£ç ");
 			}
 			else
 			{
@@ -16,3 +16,4 @@ var inputName= $("#jgnumber").val();
 			
 			}
 			javavavaasdvad
+			hell
