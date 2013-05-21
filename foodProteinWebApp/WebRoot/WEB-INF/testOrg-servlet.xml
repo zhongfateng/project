@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-autowire="byName"
+	default-lazy-init="true"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans     
+	    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean class="com.nbw.testOrg.dao.TestOrgDAO" id="testOrgdao" parent="baseDao" />
+	
+	<bean id="testOrgmanager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.testOrg.service.TestOrgManager" />
+		</property>
+	</bean>
+	
+	<bean class="com.nbw.testOrg.web.action.TestOrgController" name="/testOrg.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.testOrg.domain.TestOrg</value>
+		</property>
+	</bean>
+	
+	
+	<bean class="com.nbw.techDy.dao.TechDyDAO" id="techDydao" parent="baseDao" />
+	
+	<bean id="techDymanager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.techDy.service.TechDyManager" />
+		</property>
+	</bean>
+	
+	<bean class="com.nbw.techDy.web.action.TechDyController" name="/techDy.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.techDy.domain.TechDy</value>
+		</property>
+	</bean>
+	
+</beans>

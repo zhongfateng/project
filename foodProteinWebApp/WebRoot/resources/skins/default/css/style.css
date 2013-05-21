@@ -1,0 +1,194 @@
+/*body的样式*/
+body {
+	background-color: #ffffff;
+	background-repeat: no-repeat;
+	font-family: Arial, Verdana;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	text-decoration: none;
+}
+
+
+/*默认的table样式*/ 
+/*table*/
+table {
+	font-size: 12px;
+}
+
+/*tr*/
+tr {
+}
+
+/*td*/
+td {
+}
+
+/*自定义的table的样式*/ 
+/*table*/
+table.table_nbw {
+	font-size: 12px;
+	width: 98%;
+	border-collapse: collapse;
+	border: 1px solid #C8DCE7;
+}
+/*标题行*/
+th.th_nbw{
+	LINE-HEIGHT: 150%;
+	border: 1px solid #C8DCE7;
+	text-align: center;
+	background-color:#C2E6F5;
+}
+/*tr*/
+tr.tr_nbw {
+	background-color: #FFFFFF;
+}
+/*奇数行*/
+tr.tr_odd_nbw {
+}
+/*偶数行*/
+tr.tr_even_nbw {
+	background-color: #ECF7FC;
+}
+
+/*td*/
+td.td_nbw {
+	LINE-HEIGHT: 150%;
+	border: 1px solid #C8DCE7;
+}
+
+
+/*input对象的样式*/
+input {
+	font-size: 12px;
+}
+
+
+/*按钮-上面2个汉字*/
+input.button_nbw {
+	Border: 1px solid #7CA5D1;
+	Width: 36px;
+	Height: 18px;
+	Color: #044088;
+	Background: url("../images/button_bg.gif") left top repeat-x;
+}
+
+/*按钮-上面4个汉字，和2个汉字的区别只有宽度*/
+input.button4_nbw {
+	Border: 1px solid #7CA5D1;
+	Width: 60px;
+	Height: 18px;
+	Color: #044088;
+	Background: url("../images/button_bg.gif") left top repeat-x;
+}
+
+/*按钮-上面6个汉字，和2个汉字的区别只有宽度*/
+input.button6_nbw {
+	Border: 1px solid #7CA5D1;
+	Width: 84px;
+	Height: 18px;
+	Color: #044088;
+	Background: url("../images/button_bg.gif") left top repeat-x;
+}
+
+/*默认文本录入框，只定义高度和字体大小*/
+input.textfiled {
+	Height: 18px;
+}
+/*带边框的文本录入框*/
+input.textfiled_nbw {
+	text-decoration: none;
+	Border: 1px solid #C8DCE7;
+	Height: 18px;
+}
+
+/*只读的文本录入框*/
+input.textfiled_readonly {
+	text-decoration: none;
+	border: 1px solid #C8DCE7;
+	Height: 18px;
+	color:gray;
+}
+
+/*复选框*/
+input.checkbox_nbw{
+}
+
+/*单选框*/
+input.radio_nbw{
+}
+
+/*文件选择框*/
+input.file_nbw{
+	text-decoration: none;
+	Border: 1px solid #C8DCE7;
+	Height: 18px;
+}
+
+/*多行文本录入框，带蓝色边框*/
+textarea.textarea_nbw{
+	text-decoration: none;
+	border: 1px solid #C8DCE7;
+	font-size: 12px;
+}
+
+/*多行文本录入框，只读的*/
+textarea.textarea_readonly{
+	text-decoration: none;
+	border: 1px solid #C8DCE7;
+	color:gray;
+	font-size: 12px;
+}
+
+/*下拉选择框的样式*/
+select.select_nbw{
+	font-size: 12px;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+}
+
+/*人员选择图片-单选*/
+input.button_singelPerson{
+	width: 15px;
+	height: 16px;
+	background: url(../images/person_single.gif) no-repeat top left;
+	color: #FFFFFF;
+	border: 0px;/*去除边框*/
+	font-size: 1.6em;
+	font-weight: bold;
+}
+
+/*必填项标记*/
+div.btx{ 
+	position:absolute;
+	color:red;
+	padding-left: 4px;
+}
+
+/*链接的样式*/
+A:link {
+	FONT-SIZE: 12px;
+	color: #7777AA;
+	TEXT-DECORATION: none
+}
+
+A:active {
+	FONT-SIZE: 12pt;
+	COLOR: #7777AA;
+	TEXT-DECORATION: none
+}
+
+A:visited {
+	FONT-SIZE: 12px;
+	COLOR: #7777AA;
+	TEXT-DECORATION: none
+}
+
+A:hover {
+	FONT-SIZE: 12px;
+	COLOR: #7777AA;
+	TEXT-DECORATION: underline
+}

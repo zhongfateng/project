@@ -1,0 +1,125 @@
+/* CSS Document */
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+
+.user{ background:url(image/user_bg.jpg); background-position:right bottom; background-repeat:no-repeat; font:"宋体"; font-size:12px; color:#000000; line-height:23px;}
+
+
+.keyword {
+	float:left;
+	width:515px;
+	height:27px;
+	color:#06f;
+	border:0px solid #999;
+	line-height:25px;
+	background:url(image/search_t.gif) no-repeat 0 0;
+}
+.search_btn {
+	float:left;
+	width:101px;
+	height:27px;
+}
+
+
+
+
+.zy_text{font:"宋体"; font-size:12px; color:#1d2088; text-align:left; line-height:23px;  }
+a.zy_text:link,a.zy_text:visited {text-align:left; line-height:23px;}
+a.zy_text:hover,a.zy_text:active { color:#ffc90a; line-height:23px;}
+
+.zy_acc{ font:"宋体"; color:#999999; font-size:12px}
+a.zy_acc:link,a.zy_acc:visited {font:"宋体"; color:#999999; font-size:12px}
+a.zy_acc:hover,a.zy_acc:active {font:"宋体"; color:#ffc90a; font-size:12px}
+
+
+.more{ font:"宋体"; color:#000000; font-size:12px}
+a.more:link,a.more:visited { padding-left:15px; text-align:left}
+a.more:hover,a.more:active { color:#ffc90a;}
+
+
+.huib{ border:solid; border-color:#bbbbbb; border-width:1px; margin-bottom:5px;}
+.topwb{ border:solid; border-color:#bbbbbb; border-width:0px 1px 1px 1px; margin-bottom:5px;}
+
+
+
+.huizi{font:"宋体"; color:#666666; font-size:12px}
+.jiage{font:"宋体"; color:#FF0000; font-size:12px }
+.option{font:"宋体"; color:#fff; font-size:12px; line-height:22px;}
+a.option:link,a.option:visited {  font-size:12px; color:#ffffff;}
+a.option:hover,a.option:active {  font-size:12px;color:#ffc90a;}
+.margintop5{ margin-top:5px;}
+.margintop20{ margin-top:28px;}
+.magin10{ margin:10px 0px;}
+
+
+.boxr{ background:url(image/1234567.gif) no-repeat 0 0; margin:8px 0px; padding-left:16px;}
+.gonggao{ background:url(image/icon_r.gif) no-repeat 0 0; margin:16px 0px 8px 0px; padding-left:16px;}
+
+.box{ height:13px; width:118px; border:0px; border-bottom:#bbbbbb solid 1px;background:transparent; color:#666666;}
+.btn1{border:0px;background:transparent; height:13px; color:#11325E;}
+.btn2{border:0px;background:transparent; height:13px; color:#3d9ae1;}
+
+
+.tag1 td{
+	width: 148px;
+	text-align:center;
+	letter-spacing: 2px;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration:none;
+	height:47px;
+}
+.tag1_01{
+	color:#FFFFFF;
+	background-repeat: no-repeat;
+	cursor: hand;
+	list-style-type: none;
+	width: auto;
+	background-color: #FFFFFF;
+	height: auto;
+}
+.tag1_02{
+	background-image: url(image/default_15.gif);
+	color: #000000;
+	background-repeat: no-repeat;
+	cursor: hand;
+	list-style-type: none;
+	width: auto;
+	background-color: #FFFFFF;
+	height: auto;
+}
+
+
+
+
+
+.zy_b1{ background:url(image/index_19.gif) no-repeat 0 15px;height:178px; }
+.zy_b2{ background:url(image/index_20.gif) no-repeat 0 15px;height:178px; }
+.zy_b3{ background:url(image/index_27.gif) no-repeat 0 15px;height:178px; }
+.zy_b4{ background:url(image/index_25.gif) no-repeat 0 15px;height:178px; }
+.zy_b5{ background:url(image/index_30.gif) no-repeat 0 15px;height:178px; }
+
+.title{ font-size:14px; font-weight:bold; color:ffffff; }
+a.title:link,a.title:visited {  font-size:14px; font-weight:bold;  color:#ffffff;}
+a.title:hover,a.title:active {  font-size:14px; font-weight:bold; color:#ffc90a;}
+
+.cain{ font:"黑体"; font-size:14px; font-weight:bold; color:#f8bd5f;}
+a.cain:link,a.cain:visited { font:"黑体"; font-size:14px; font-weight:bold; color:#f8bd5f;}
+a.cain:hover,a.cain:active {  font:"黑体"; font-size:14px; font-weight:bold; color:#d37f1c;}
+
+
+
+
+.service{ background:url(image/service_bg.gif); background-position:left top; background-repeat:no-repeat; font-size:12px; color:#666560; line-height:20px;}
+a.service:link,a.service:visited { padding-left:15px; text-align:left; color:#666560;}
+a.service:hover,a.service:active { color:#ffc90a;}
+
+.service_title{ font:"宋体"; font-size:14px; font-weight:bold; color:#1d2088; line-height:30px;}
+a.service_title:link,a.service_title:visited { text-align:left; color:#1d2088;}
+a.service_title:hover,a.service_title:active { color:#ffc90a;}
+

@@ -1,0 +1,44 @@
+<beans>   
+<service  xmlns="http://xfire.codehaus.org/config/1.0">   
+	   	<name>IOrderWebService</name>
+		<serviceClass>com.nbw.axis2.webs.IOrderWebService</serviceClass>
+		<implementationClass>
+			          com.nbw.axis2.webs.OrderWebServiceImpl
+		</implementationClass>
+		<style>wrapped</style>
+		<use>literal</use>
+		<scope>application</scope>
+	 </service>
+	 </beans>
+	<!--<service name="XctService">
+		<description>XctService Spring POJO Axis2 deployment</description>
+		<parameter name="ServiceClass">
+			com.nbw.axis2.test.IXctService
+		</parameter>
+		<parameter name="ServiceObjectSupplier">
+			org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier
+		</parameter>
+		<parameter name="SpringBeanName">XctService</parameter>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+	</service>-->
+	<!-- 门户接受服务器 -->
+	<!-- <service name="WebService">
+	  <description>OrderWebServiceImpl Spring POJO Axis2 deployment</description>
+	  <parameter name="ServiceClass">
+	    com.nbw.axis2.webs.IOrderWebService
+	  </parameter>
+	  <parameter name="ServiceObjectSupplier">
+			org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier
+		</parameter>
+		<parameter name="SpringBeanName">OrderWebServiceImpl</parameter>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+	</service>
+-->
+	
+	 

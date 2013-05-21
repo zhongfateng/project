@@ -1,0 +1,2 @@
+<link href="<%=request.getContextPath()%>/resources/component/dhtmlxTree/dhtmlxtree.css" type="text/css" rel="stylesheet" />
+<script language="JavaScript" type="text/javascript" src="<%=request.getContextPath()%>/resources/component/dhtmlxTree/dhtmlxtree.js"></script>

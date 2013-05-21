@@ -1,0 +1,168 @@
+/* CSS Document */
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+.hei16B { font-family:"黑体";	font-size: 18px; font-style: normal;	line-height: 20px;	font-variant: normal;color: #000000;}
+a.hei16B:visited {font-family:"黑体";	font-size: 18px; font-size: 14px;	line-height: 20px;	font-variant: normal;	color: #E5F5FB;}
+a.hei16B:hover,a.hei16B:active {font-family:"黑体";	font-size: 18px;  font-size: 14px;	line-height: 20px;	font-variant: normal;	color: #ffcc66;}
+
+
+
+.hei14 {	font-family: "宋体";	font-size: 14px; font-style: normal;	line-height: 28px;	font-variant: normal;color: #000000;}
+a.hei14:visited {	font-family: "宋体"; font-size: 14px;	line-height: 28px;	font-variant: normal;	color: #0000FF;}
+a.hei14:hover,a.hei14:active {	font-family: "宋体"; font-size: 14px;	line-height: 28px;	font-variant: normal;	color: #0000FF;}
+
+
+.bai14 {	font-family: "宋体";	font-size: 14px; font-style: normal;	line-height: 20px; font-weight:bold;	font-variant: normal;color: #ffffff;}
+a.bai14:visited {	font-family: "宋体"; font-size: 14px;	line-height: 20px; font-weight:bold;	font-variant: normal;	color: #E5F5FB;}
+a.bai14:hover,a.bai14:active {	font-family: "宋体"; font-size: 14px;	line-height: 20px; font-weight:bold;	font-variant: normal;	color: #ffcc66;}
+
+
+.eng14 { font-family: Geneva, Arial, Helvetica, sans-serif;	font-size: 14px; font-style: normal;	line-height: 25px; font-variant: normal;color: #000000;}
+a.eng14:visited {	font-family: Geneva, Arial, Helvetica, sans-serif;	 font-size: 14px;	line-height: 25px;	font-variant: normal;	color: #E5F5FB;}
+a.eng14:hover,a.eng14:active {	font-family: Geneva, Arial, Helvetica, sans-serif;	 font-size: 14px;	line-height: 25px; 	font-variant: normal;	color: #ffcc66;}
+
+
+
+.eng14IT { font-family: Geneva, Arial, Helvetica, sans-serif;  font-size: 14px; font-style:italic; text-decoration:underline;line-height: 25px; color: #0000ff;}
+a.eng14:visited {	font-family: Geneva, Arial, Helvetica, sans-serif;font-size: 14px;font-style:italic; text-decoration:underline;	line-height: 25px;	color: #E5F5FB;}
+a.eng14:hover,a.eng14:active {	font-family: Geneva, Arial, Helvetica, sans-serif;	font-size: 14px;font-style:italic; text-decoration:underline;	line-height: 25px;	color: #ffcc66;}
+
+
+.link14 {	font-family: "宋体";	font-size: 14px; font-style: normal;	line-height: 20px; 	font-variant: normal;color: #0000FF;}
+a.link14:visited {	font-family: "宋体"; font-size: 14px;	line-height: 20px; 	font-variant: normal;	color: #E5F5FB;}
+a.link14:hover,a.link14:active {	font-family: "宋体"; font-size: 14px;	line-height: 20px; 	font-variant: normal;	color: #ffcc66;}
+
+
+
+.orange14B {font-family: "宋体";font-size: 14px; font-style: normal;line-height: 20px; font-variant: normal;color: #b95d00; font-weight:bold;}
+a.orange14B:visited {font-family: "宋体"; font-size: 14px;	line-height: 20px; 	font-variant: normal;	color: #b95d00;font-weight:bold;}
+a.orange14B:hover,a.orange14B:active {	font-family: "宋体"; font-size: 14px;line-height: 20px; font-variant: normal;color: #ffcc66;font-weight:bold;}
+
+
+
+.stitle {	font-family: "宋体";	font-size: 16px; font-weight:bold;	font-style: normal;	line-height: 20px;	font-variant: normal;color: #ff8800;}
+a.stitle:visited {	font-family: "宋体"; font-weight:bold;	font-size: 16px;	line-height: 20px;	font-variant: normal;	color: #E5F5FB;}
+a.stitle:hover,a.stitle:active {	font-family: "宋体"; font-weight:bold;	font-size: 16px;	line-height: 20px;	font-variant: normal;	color: #ff8800;}
+
+
+.hei12 {	font-family: "宋体";	font-size: 12px;	font-style: normal;	line-height: 20px;	font-variant: normal;color: #333333; padding-left:10px;}
+a.hei12:visited {	font-family: "宋体";	font-size: 12px;	line-height: 20px;	font-variant: normal;	color: #006DAC;}
+a.hei12:hover,a.hei12:active {	font-family: "宋体";	font-size: 12px;	line-height: 20px;	font-variant: normal;	color: #ffcc66; padding-left:10px;}
+
+
+.bai12 {	font-family: "宋体";	font-size: 12px;	font-style: normal;	line-height: 20px;	font-variant: normal;color: #ffffff; padding-left:10px;}
+a.bai12:visited {	font-family: "宋体";	font-size: 12px;	line-height: 20px;	font-variant: normal;	color: #006DAC;}
+a.bai12:hover,a.bai12:active {	font-family: "宋体";	font-size: 12px;	line-height: 20px;	font-variant: normal;	color: #ffcc66; padding-left:10px;}
+
+
+.lanlink {	font-family: "宋体";	font-size: 12px;	font-style: normal;	line-height: 20px;	font-variant: normal; color:#0000FF; padding-left:10px;}
+a.lanlink:link,a.lanlink:visited {	font-family: "宋体";	font-size: 12px;	line-height: 20px;	font-variant: normal;	color: #006DAC;}
+a.lanlink:hover,a.lanlink:active {	font-family: "宋体";	font-size: 12px;	line-height: 20px;	font-variant: normal;	color: #ffcc66; padding-left:10px;}
+
+
+.red12 {	font-family: "宋体";	font-size: 12px;	font-style: normal;	line-height: 20px;	font-variant: normal;color: #ff0000; padding-left:10px;}
+a.red12:visited {	font-family: "宋体";	font-size: 12px;	line-height: 20px;	font-variant: normal;	color: #006DAC;}
+a.red12:hover,a.red12:active {	font-family: "宋体";	font-size: 12px;	line-height: 20px;	font-variant: normal;	color: #ffcc66; padding-left:10px;}
+
+
+
+.qianlan12 {	font-family: "宋体";	font-size: 12px;	line-height: 22px;	font-variant: normal;color: #75cdff; padding-left:10px;}
+a.qianlan12:visited {	font-family: "宋体"; 	font-size: 12px;	line-height: 22px;	font-variant: normal;	color: #E5F5FB;}
+a.qianlan12:hover,a.qianlan12:active {	font-family: "宋体";	font-size: 12px;	line-height: 22px;	font-variant: normal;	color: #ffda68;}
+
+.TxtUserNameCssClass {
+	BORDER-TOP-WIDTH: 0px; PADDING-LEFT: 10px; padding-right:15px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: url(images/text.jpg) no-repeat; BORDER-BOTTOM-WIDTH: 0px; WIDTH: 165px; LINE-HEIGHT: 28px; HEIGHT: 31px; BORDER-RIGHT-WIDTH: 0px
+}
+.TxtUser-s {
+	BORDER-TOP-WIDTH: 0px; PADDING-LEFT: 10px; padding-right:15px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: url(images/s-text.jpg) no-repeat; BORDER-BOTTOM-WIDTH: 0px; WIDTH: 92px; LINE-HEIGHT: 28px; HEIGHT: 31px; BORDER-RIGHT-WIDTH: 0px
+}
+
+.selecttxt{ height:30px; border:solid 1px #CCCCCC; color:#999999}
+
+
+
+.tag1 td{
+	width: 83px;
+	text-align:center;
+	letter-spacing: 2px;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration:none;
+	height:25px;
+	padding-top: 4px;
+}
+.tag1_01{
+	color:#FFFFFF;
+	background-repeat: no-repeat;
+	cursor: hand;
+	list-style-type: none;
+	width: auto;
+	background-color: #4e85e2;
+	height: auto;
+}
+.tag1_02{
+	color: #fff;
+	background-repeat: no-repeat;
+	cursor: hand;
+	list-style-type: none;
+	width: auto;
+	background-color: #cccccc;
+	height: auto;
+}
+
+
+.tag1_01A{
+	color:#FFFFFF;
+	background-repeat: no-repeat;
+	cursor: hand;
+	list-style-type: none;
+	width: auto;
+	background-color: #f89939;
+	height: auto;
+}
+.tag1_02A{
+	color: #fff;
+	background-repeat: no-repeat;
+	cursor: hand;
+	list-style-type: none;
+	width: auto;
+	background-color: #aaaaaa;
+	height: auto;
+}
+
+
+
+.menu1 td{
+	width: 83px;
+	text-align:center;
+	letter-spacing: 2px;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration:none;
+	height:25px;
+	padding-top: 4px;
+}
+.menu1_01{
+	color:#FFFFFF;
+	background-repeat: no-repeat;
+	cursor: hand;
+	list-style-type: none;
+	width: auto;
+	background-color: #99CC66;
+	height: auto;
+}
+.menu1_02{
+	color: #fff;
+	background-repeat: no-repeat;
+	cursor: hand;
+	list-style-type: none;
+	width: auto;
+	background-color: ##CCCCCC;
+	height: auto;
+}
+

@@ -1,0 +1,25 @@
+一、Session里保存的信息
+1、用户信息
+	在session中保存在"loginUser"中，获取方法
+	LoginUserInfo userInfo = (LoginUserInfo)request.getSession().getAttribute("loginUser");
+
+2、当前皮肤对应的CSS、图片等的根目录
+	在session中保存在"skinPath"中，获取方法
+	String skinPath = (String)request.getSession().getAttribute("skinPath");
+	当前皮肤对应css文件
+	在session中保存在"cssFile"中，获取方法
+	String cssFile = (String)request.getSession().getAttribute("cssFile");
+
+二、Application里保存的信息
+1、项目的相关信息
+	在session中保存在"appInfo"中，获取方法
+	AppInfo appInfo = (AppInfo)application.getAttribute("appInfo");
+
+2、当前皮肤对应的CSS、图片等的根目录
+	在session中保存在"skinPath"中，获取方法
+	String skinPath = (String)application.getAttribute("skinPath");
+	用EL表达式读取：${skinPath}
+当前皮肤对应css文件
+	在session中保存在"cssFile"中，获取方法
+	String cssFile = (String)application.getAttribute("cssFile");
+	用EL表达式读取：${cssFile}

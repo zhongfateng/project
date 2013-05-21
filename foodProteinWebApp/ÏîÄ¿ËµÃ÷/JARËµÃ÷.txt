@@ -1,0 +1,82 @@
+﻿◎通用jar包		共8个
+	commons-beanutils-1.7.0.jar 	提供对 Java 反射和自省API的包装
+	commons-codec-1.3.jar 			包含一些通用的编码解码算法。包括一些语音编码器， Hex, Base64, 以及URL encoder
+	commons-collections-3.0.jar   	包含了一些Apache开发的集合类，功能比java.util.*强大,提供一个类包来扩展和增加标准的 Java Collection框架 
+	commons-lang-2.0.jar 			对java.lang包进行扩展,来处理和简化日常Java任务，比如字符串操作、使用日期和日历、比较数据对象以及对象排序等
+	commons-logging-1.0.4.jar 		日志处理组件
+	log4j-1.2.11.jar	        		调试信息输出
+	standard-1.0.2.jar				jstl的类库，包含TLD 和标记句柄
+	classes12.jar					oracle数据连接
+	
+◎spring 2.5	共6个
+	spring.jar。这个包是个整合的包，减少jar的数量。包含了如下的jar
+	（spring-aop.jar
+	spring-beans.jar
+	spring-context-support.jar
+	spring-context.jar
+	spring-core.jar
+	spring-jdbc.jar
+	spring-jms.jar
+	spring-orm.jar
+	spring-tx.jar
+	spring-web.jar
+	）
+	spring-webmvc-portlet.jar
+	spring-webmvc-struts.jar
+	spring-webmvc.jar
+	aopalliance.jar
+	cglib-nodep-2.1_3.jar
+	jstl.jar			不是spring自带的，有的功能需要
+	commons-dbcp.jar	不是spring自带的，访问数据库时需要
+	
+◎ hibernate3.2.5所需的包		共6个
+	antlr-2.7.6.jar   		ANother Tool for Language Recognition(antlr)
+	dom4j-1.6.1.jar			XML配置和映射解释器
+	ehcache-1.2.3.jar			EHCache缓存
+	hibernate3.jar	 3.2.6		核心库
+	jaxen-1.1-beta-7.jar	Jaxen,与dom4j.jar搭配用  少了-
+	jta.jar					标准的JTA API
+	xerces-2.6.2.jar
+
+	
+◎ 文件上传包		共2个
+	commons-fileupload-1.2.1.jar 
+	commons-io-1.3.2.jar
+	
+◎extremecomponents表格所需包	共1个
+	extremecomponents-1.0.1.jar
+	还必须要（
+		commons-beanutils-1.7.0.jar、commons-codec-1.3.jar、commons-collections-3.0.jar
+		commons-lang-2.0.jar、commons-logging-1.0.4.jar、standard-1.0.2.jar、hibernate3.jar
+		）
+	导出Excel还必须有 poi-3.1.jar
+	导出pdf还必须有（
+		avalon-framework-4.0.jar、batik-1.5-fop-0.20-5.jar、fop-0.20.5.jar、
+		xalan-2.5.1.jar、xercesImpl-2.6.1.jar、xml-apis-2.0.2.jar
+		）
+		
+◎导出到Word、Excel所需要的包	共5个
+	iText-2.1.3.jar、iText-rtf-2.1.3.jar、iTextAsian.jar 用于导出到Word
+	poi-3.1.jar、jxl.jar 用于导出到Excel
+	
+◎图形(jfreechart和cewolf)所需要的包	共8个
+	batik-awt-util-1.6.jar、batik-dom-1.6.jar、batik-svggen-1.6.jar、
+	batik-util-1.6.jar、batik-xml-1.6.jar、cewolf-1.0.jar、
+	jcommon-1.0.0.jar、jfreechart-1.0.0.jar
+	
+◎lucene2.3.2需要的包
+	lucene-analyzers-2.3.2.jar
+	lucene-core-2.3.2.jar
+	lucene-highlighter-2.3.2.jar
+	nekohtml-1.9.6.jar    用来解析html
+	PDFBox-0.7.3.jar      用来解析pdf
+	poi-contrib-3.2-FINAL-20081019.jar lucene用来解析ppt、word和excel，最好与poi版本相同
+	poi-scratchpad-3.2-FINAL-20081019.jar lucene用来解析ppt、word和excel，最好和poi版本相同
+	
+@xfire 需要包
+    xfire-all-1.2.6.jar   xbean-spring-2.7.jar
+
+◎其他
+   activation.jar commons-email-1.1.jar  mail.jar  建邮件服务器相关包
+   proxool-0.9.0RC3.jar    proxool连接池相关包
+	

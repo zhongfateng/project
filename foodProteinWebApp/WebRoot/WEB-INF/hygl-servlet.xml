@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	default-autowire="byName" default-lazy-init="true"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans         http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- 会员级别-->
+	<bean class="com.nbw.hygl.dao.FmptHyJbDAO" id="fmpthyjbdao"
+		parent="baseDao" />
+	<bean id="fmpthyjbmanager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.hygl.service.FmptHyJbManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.hygl.web.action.FmptHyJbController"
+		name="/fmpthyjb.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.hygl.domain.FmptHyJb</value>
+		</property>
+	</bean>
+	
+	<!-- 账户-->
+	<bean class="com.nbw.hygl.dao.FmptZhDAO" id="fmptzhdao"
+		parent="baseDao" />
+	<bean id="fmptzhmanager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.hygl.service.FmptZhManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.hygl.web.action.FmptZhController"
+		name="/fmptzh.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.hygl.domain.FmptZh</value>
+		</property>
+	</bean>
+	
+	
+	
+	<!-- 会员积分-->
+	<bean class="com.nbw.hygl.dao.FmptJfDAO" id="fmptJfdao"
+		parent="baseDao" />
+	<bean id="fmptJfmanager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.hygl.service.FmptJfManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.hygl.web.action.FmptJfController"
+		name="/fmptJf.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.hygl.domain.FmptJf</value>
+		</property>
+	</bean>
+	
+	
+	
+	<!-- 会员积分总数-->
+	<bean class="com.nbw.hygl.dao.FmptJfSumDAO" id="fmptJfSumdao"
+		parent="baseDao" />
+	<bean id="fmptJfSummanager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.hygl.service.FmptJfSumManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.hygl.web.action.FmptJfSumController"
+		name="/fmptJfSum.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.hygl.domain.FmptJfSum</value>
+		</property>
+	</bean>
+
+ <!-- 注册的所在省市 -->
+  <bean class="com.nbw.hygl.dao.CityDAO" id="getCityDAO" parent="baseDao" />
+	
+	<bean id="cityManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.hygl.service.CityManager" />
+		</property>
+	</bean>
+	
+	<bean class="com.nbw.hygl.web.action.CityController" name="/city.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.hygl.domain.City</value>
+		</property>
+	</bean>
+	
+	<!-- 用户管理 -->
+	<bean class="com.nbw.hygl.web.action.FmptUserController" name="/fmptuser.action">
+	<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.sys.domain.SysUsers</value>
+		</property>
+	</bean>
+	<bean class="com.nbw.hygl.dao.FmptUserDao" id="fmsptUserDao"
+		parent="baseDao" />
+	<bean id="fmptUserManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.hygl.service.FmptUserManager" />
+		</property>
+	</bean>
+	
+</beans>

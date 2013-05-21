@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-autowire="byName"
+	default-lazy-init="true"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans     
+	    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean class="com.nbw.expert.dao.ExpertDAO" id="expertDao" parent="baseDao" />
+	
+	<bean id="expertManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.expert.service.ExpertManager" />
+		</property>
+	</bean>
+	
+	<bean class="com.nbw.expert.web.action.ExpertController" name="/expert.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.expert.domain.Expert</value>
+		</property>
+	</bean>
+	
+</beans>

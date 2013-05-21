@@ -1,0 +1,25 @@
+#Fri May 17 18:06:58 CST 2013
+eclipse.preferences.version=1
+encoding//WebRoot/comm/fmpt_top.jsp=UTF-8
+encoding//WebRoot/resources/component/formValidator/formValidator.js=UTF-8
+encoding//WebRoot/resources/component/formValidator/formValidatorRegex.js=UTF-8
+encoding//WebRoot/resources/component/formValidator/formValidator_min.js=UTF-8
+encoding//WebRoot/resources/js/calendar.js=UTF-8
+encoding//WebRoot/resources/js/hygl/user.js=UTF-8
+encoding//WebRoot/resources/js/sys/calendar.js=UTF-8
+encoding//WebRoot/resources/js/sys/select.js=UTF-8
+encoding//WebRoot/resources/js/tupu/service.min.js=UTF-8
+encoding//WebRoot/resources/js/tupu/service.src.js=UTF-8
+encoding//WebRoot/resources/js/util.js=UTF-8
+encoding//WebRoot/resources/js/validate.js=UTF-8
+encoding//src/com/alipay=gb2312
+encoding//src/com/alipay/action/AlipayController.java=UTF-8
+encoding//src/com/alipay/config/AlipayConfig.java=UTF-8
+encoding//src/com/alipay/servlet=UTF-8
+encoding//src/com/alipay/util=gb2312
+encoding//src/com/nbw/common/util/action/fileupload/FileUpload.java=UTF-8
+encoding//src/com/nbw/common/util/tupu/CommonsFiend.java=UTF-8
+encoding//src/com/nbw/resources/web/action/StandardResourcesController.java=UTF-8
+encoding//src/com/nbw/sys/service/SysCodesManager.java=UTF-8
+encoding//src/sysParameter.properties=UTF-8
+encoding/<project>=UTF-8

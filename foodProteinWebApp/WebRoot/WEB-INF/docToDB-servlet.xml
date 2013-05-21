@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-autowire="byName"
+	default-lazy-init="true"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans     
+	    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- Gene的配置开始    DAO  Service   Action之间的对应关系及如何进入action类 -->
+	<bean class="com.nbw.docToDB.dao.GeneDAO" id="genedao" parent="baseDao" />
+	
+	<bean id="genemanager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.docToDB.service.GeneManager" />
+		</property>
+	</bean>
+	
+	<bean class="com.nbw.docToDB.web.action.GeneController" name="/gene.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.docToDB.domain.Gene</value>
+		</property>
+	</bean>
+	<!-- Gene配置结束 -->
+	
+	
+	<!-- Protein配置开始  -->
+	<bean class="com.nbw.docToDB.dao.ProteinDAO" id="proteindao" parent="baseDao"/>
+	<bean id="proteinmanager" parent="baseTransactionProxy">
+	<property name="target">
+	<bean class="com.nbw.docToDB.service.ProteinManager"/>
+	</property>
+	</bean>
+	<bean class="com.nbw.docToDB.web.action.ProteinController" name="/protein.action">
+	<property name="methodNameResolver">
+	<ref bean="paramResolver"/>
+	</property>
+	<property name="sessionForm">
+	<value>false</value>
+	</property>
+	<property name="commandClass">
+	<value>com.nbw.docToDB.domain.Protein</value>
+	</property>
+	</bean>
+	<!-- Protein配置结束 -->
+	
+	<!-- Rna配置开始 -->
+	<bean class="com.nbw.docToDB.dao.RnaDAO" id="rnadao" parent="baseDao"/>
+	<bean id="rnamanager" parent="baseTransactionProxy">
+	<property name="target">
+	<bean class="com.nbw.docToDB.service.RnaManager"/>
+	</property>
+	</bean>
+	<bean class="com.nbw.docToDB.web.action.RnaController" name="/rna.action">
+	<property name="methodNameResolver">
+	<ref bean="paramResolver"/>
+	</property>
+	<property name="sessionForm">
+	<value>false</value>
+	</property>
+	<property name="commandClass">
+	<value>com.nbw.docToDB.domain.Rna</value>
+	</property>
+	</bean>
+	<!-- Rna配置结束 -->
+	
+
+</beans>

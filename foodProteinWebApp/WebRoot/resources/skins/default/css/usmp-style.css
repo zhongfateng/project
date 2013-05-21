@@ -1,0 +1,77 @@
+body,th,td {
+	font-family: 宋体, serif;
+	font-size: 12px;
+}
+
+body {
+	background-color: white;
+	border: 0;
+	color: black;
+	font-style: normal;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+a:active, a:link {
+	color: #000000;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #067EB6;
+	text-decoration: none;
+}
+
+a.mainmenu:active, a.mainmenu:link, a.mainmenu:visited {
+	color: white;
+	text-decoration: none;
+}
+
+a:hover, a.mainmenu:hover {
+	color: #FF0000; text-decoration: none;
+}
+
+/*自定义的table的样式*/ 
+/*table*/
+table.table_head {
+	font-size: 12px;
+	width: 98%;
+	border-collapse: collapse;
+	border: 1px solid #C8DCE7;
+}
+td.table_td{
+	font-size: 12px;
+	border: 1px solid #C8DCE7;
+	}
+/*标题行*/
+th.th_nbw{
+	LINE-HEIGHT: 150%;
+	border: 1px solid #C8DCE7;
+	text-align: center;
+	background-color:#C2E6F5;
+}
+/*tr*/
+tr.tr_nbw {
+	background-color: #FFFFFF;
+}
+/*奇数行*/
+tr.tr_odd_nbw {
+}
+/*偶数行*/
+tr.tr_even_nbw {
+	background-color: #ECF7FC;
+}
+
+/*td*/
+.td_head {
+	background-image: url('../images/navigation.gif');
+	height: 27px;
+}
+
+.sys_layout{
+	width: 100%; 
+	height: 473px; 
+	aborder: #B5CDE4 1px solid; 
+	overflow: hidden; 
+	}

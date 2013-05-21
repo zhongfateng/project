@@ -1,0 +1,307 @@
+.eXtremeTable {
+	margin: 0;
+	padding: 0;
+}
+
+.eXtremeTable select {
+	font-family: "宋体";
+	font-size: 12px;
+	border: 1px solid #8FC5DC;
+	width: 75px;
+}
+
+.eXtremeTable .tableRegion {
+	BORDER-COLLAPSE: collapse;
+	cellPadding:1;
+	cellSpacing:1;
+	font-family: "宋体";
+	font-size: 12px;
+	margin-top: 7px;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #8FC5DC;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #8FC5DC;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #8FC5DC;
+	border-bottom-color: #8FC5DC;
+}
+
+.eXtremeTable .filter {
+	font-family: "宋体";
+	font-size: 12px;
+}
+
+.eXtremeTable .filter td {
+	padding: 2px;
+}
+
+.eXtremeTable .title {
+	color: #444444;
+	font-weight: bold;
+	font-family: "宋体";
+	font-size: 15px;
+	vertical-align: middle;
+}
+
+.eXtremeTable .titleRow {
+	background-color: #ECF7FC;
+}
+
+.eXtremeTable .titleRow td {
+	border-bottom: 1px solid #8FC5DC;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.eXtremeTable .titleRow span {
+	color: #444444;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.eXtremeTable .filter input {
+	font-family: "宋体";
+	font-size: 12px;
+	border: 1px solid #8FC5DC;
+	padding: 1px;
+	height: 18px;
+	width: 100%;
+	text-align: left;
+	color: #000000;
+}
+
+.eXtremeTable .filter select {
+	font-family: "宋体";
+	font-size: 12px;
+	width: 100%;
+	border: solid 1px #EEE;
+}
+
+.eXtremeTable .tableHeader {
+	background-color: #C2E6F5;
+	color: #000000;
+	font-family: "宋体";
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	padding-right: 3px;
+	padding-left: 3px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	margin: 0px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #8FC5DC;
+	border-right-color: #8FC5DC;
+	border-bottom-color: #8FC5DC;
+	border-left-color: #8FC5DC;
+	background-position: center center;
+	text-decoration: none;
+}
+
+.eXtremeTable .tableHeaderSort {
+	background-color: #8FC5DC;
+	color: #FFFFFF;
+	font-family: "宋体";
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	padding-right: 3px;
+	padding-left: 3px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #8FC5DC;
+	border-right-color: #8FC5DC;
+	border-bottom-color: #8FC5DC;
+	border-left-color: #8FC5DC;
+	background-position: center center;
+	text-decoration: none;
+}
+
+.eXtremeTable .odd a, .even a {
+	color: Black;
+	font-size: 12px;
+	font-family: "宋体";
+}
+
+.eXtremeTable .odd td, .eXtremeTable .even td {
+	padding-top: 2px;
+	padding-right: 3px;
+	padding-bottom: 2px;
+	padding-left: 3px;
+	vertical-align: middle;
+	font-family: "宋体";
+	font-size: 12px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-top-color: #8FC5DC;
+	border-right-color: #8FC5DC;
+	border-bottom-color: #8FC5DC;
+	border-left-color: #8FC5DC;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	text-align: center;
+}
+
+.eXtremeTable .odd {
+	background-color: #FFFFFF;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-top-color: #8FC5DC;
+	border-right-color: #8FC5DC;
+	border-bottom-color: #8FC5DC;
+	border-left-color: #8FC5DC;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.eXtremeTable .even {
+  	background-color: #ECF7FC;
+}
+
+.eXtremeTable .highlight td {
+	color: black;
+	font-size: 12px;
+	padding-top: 2px;
+	padding-right: 3px;
+	padding-bottom: 2px;
+	padding-left: 3px;
+	vertical-align: middle;
+	background-color: #FFFF99;
+	font-family: "宋体";
+	font-weight: normal;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #8FC5DC;
+	border-right-color: #8FC5DC;
+	border-bottom-color: #8FC5DC;
+	border-left-color: #8FC5DC;
+	background-position: center center;
+	text-align: center;
+}
+
+.eXtremeTable .highlight a, .highlight a {
+	color: black;
+}
+
+.eXtremeTable .compactToolbar {
+	border-top-color: #8FC5DC;
+	border-right-color: #8FC5DC;
+	border-bottom-color: #8FC5DC;
+	border-left-color: #8FC5DC;
+	border-bottom: 1px solid #8FC5DC;
+}
+
+.eXtremeTable .toolbar {
+	background-color: #ECF7FC;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 9px;
+	margin-right: 1px;
+	border-right: 1px solid silver;
+	border-left: 1px solid silver;
+	border-top: 1px solid silver;
+	border-bottom: 1px solid silver;
+}
+
+.eXtremeTable .toolbar a:hover {
+	background-color: transparent;
+}
+
+.eXtremeTable .toolbar td {
+	color: #444444;
+	padding: 0px 3px 0px 3px;
+	text-align:center;
+}
+
+.eXtremeTable .separator {
+	width: 7px;
+}
+
+.eXtremeTable .statusBar {
+	font-family: "宋体";
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+	line-height: 20px;
+	left: 2px;
+	clip: rect(auto,auto,auto,2px);
+	margin-left: 2px;
+	padding-left: 2px;
+	border-bottom: 1px solid #8FC5DC;
+}
+.eXtremeTable .statusBar input{
+	
+	font-family: "宋体";
+	font-size: 12px;
+	border: 1px solid #8FC5DC;
+	padding: 1px;
+	height: 18px;
+	width: 45px;
+	color: #000000;
+}
+
+
+.eXtremeTable .filterButtons {
+	background-color: #ECF7FC;
+	text-align: right;
+	font-family: "宋体";
+	font-size: 12px;
+}
+
+.eXtremeTable .title span {
+	margin-left: 7px;
+}
+
+.eXtremeTable .formButtons {
+	display: block;
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+.eXtremeTable .formButton {
+	cursor: pointer;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size:10px;
+	font-weight: bold;
+	background-color: #308dbb;
+	color: white;
+	margin-top: 5px;
+	border: outset 1px #333;
+	vertical-align: middle;
+}
+
+.eXtremeTable .calcRow {
+	background-color: #ECF7FC;
+}
+
+.eXtremeTable .calcTitle {
+	background-color: #ECF7FC;
+	color: black;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 10px;
+}
+
+.eXtremeTable .calcResult {
+	background-color: #ECF7FC;
+	color: black;
+	font-family: verdana, arial, helvetica, sans-serif;
+}

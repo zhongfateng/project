@@ -1,0 +1,200 @@
+/*===============*/
+/* Palette icons */
+/*===============*/
+
+.palette
+{
+	border: 0px solid #BEBED1;
+}
+
+.combonocheck
+{
+	background-color:white;
+	border: 0px solid #C6D7EF;
+}
+
+.combohover
+{
+	background-color:white;
+	border: 0px solid #6392D6;
+}
+
+.combocheck
+{
+	background-color:#B8C5D1;
+	border: 0px solid #6392D6;
+}
+
+.combobtnhover
+{
+	background-color:#6392D6;
+	border: 0px solid #6392D6;
+}
+
+.iconnocheck
+{
+	border: 0px solid #CBE2EA;
+}
+
+.iconcheck
+{
+	background-color:#B8C5D1;
+	border-top:1px solid #6A85AE;
+	border-left:1px solid #6A85AE;
+	border-bottom:1px solid white;
+	border-right:1px solid white;
+}
+
+.iconhover
+{
+	border-top:0px solid #CBE2EA;
+	border-left:0px solid #CBE2EA;
+	border-bottom:0px solid #CBE2EA;
+	border-right:0px solid #CBE2EA;
+}
+
+.iconcheckhover
+{
+	background-color:#B8C5D1;
+	border-top:1px solid #6A85AE;
+	border-left:1px solid #6A85AE;
+	border-bottom:1px solid white;
+	border-right:1px solid white;
+}
+
+.iconText
+{
+	font-family:"arial","sans-serif";
+	font-size:11px;
+	color:black;
+}
+
+.iconTextDis
+{
+	font-family:"arial","sans-serif";
+	font-size:11px;
+	color:#7B8694;
+}
+
+.iconcheckwhite
+{
+	background-color:#FFFFFF;
+	border: 1px solid #788591;
+}
+
+.iconcheckhoverwhite
+{
+	background-color:#FFFFFF;
+	border: 1px solid #788591;
+}
+
+/*=======*/
+/* menus */
+/*=======*/
+
+.menuColor
+{
+	padding:2px;
+	border: 1px solid #F6F6FB;
+}
+
+.menuColorSel
+{
+	padding:2px;
+	border: 1px solid #F6F6FB;
+	background-color:#B3D4FF;
+}
+
+.menuShadow
+{
+	position:absolute;
+	background-color:#a0a0a0;
+}
+
+.menuFrame
+{
+	position:absolute;
+	background-color:#F6F6FB;
+	border: 1px solid #636384;
+}
+
+
+.menuLeftPart
+{
+	border:0px solid white;
+	border-right:0px;
+	background-color:white;
+}
+
+.menuLeftPartColor
+{
+	border:0px solid white;
+	border-right:0px;
+	background-color:white;
+}
+
+.menuLeftPartSel
+{
+	border:0px solid #636384;
+	border-right:0px;
+	background-color:#B3D4FF;
+}
+
+.menuTextPart
+{
+	white-space:nowrap;
+	font-family:"arial","sans-serif";	
+	font-size:12px;
+	color: #067EB6;
+	padding-left:5px;
+	padding-right:5px;
+	border:0px solid white;
+	border-right:0px;
+	border-left:0px;
+	background-color:white;
+}
+
+.menuTextPartSel
+{
+	white-space:nowrap;
+	font-family:"arial","sans-serif";	
+	font-size:12px;
+	color: red;
+	padding-left:5px;
+	padding-right:5px;
+	border:0px solid #636384;
+	border-right:0px;
+	border-left:0px;
+	background-color:#B3D4FF;
+}
+
+.menuTextPartDisabled
+{
+	white-space:nowrap;
+	font-family:"arial","sans-serif";	
+	font-size:12px;
+	color:#7B8694;
+	padding-left:5px;
+	padding-right:5px;
+	border:1px solid #F6F6FB;
+	border-right:0px;
+	border-left:0px;
+	background-color:#F6F6FB;
+}
+
+.menuRightPart
+{
+	border:0px solid white;
+	border-left:0px;
+	background-color:white;
+}
+
+.menuRightPartSel
+{
+	border:0px solid #636384;
+	border-left:0px;
+	background-color:#B3D4FF;
+}
+
+
+
