@@ -1,0 +1,811 @@
+package com.nbw.dataupdate.web.action;
+
+import java.io.IOException;
+import java.net.URLDecoder;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.validation.BindException;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.nbw.common.NbwController;
+import com.nbw.common.util.PageBean;
+import com.nbw.dataupdate.domain.ImportInfo;
+import com.nbw.dataupdate.service.ImportInfoManager;
+import com.nbw.jbxx.service.JBXXManager;
+import com.nbw.jbxx.service.XYPJBManager;
+import com.nbw.poi.util.Export;
+import com.nbw.xzxkxx.domain.REPORTTYPE;
+import com.nbw.xzxkxx.service.CPCCBHGXXManager;
+import com.nbw.xzxkxx.service.JDJCBHGXXManager;
+import com.nbw.xzxkxx.service.JLXXManager;
+import com.nbw.xzxkxx.service.REPORTTYPEManager;
+import com.nbw.xzxkxx.service.RZRKXXManager;
+import com.nbw.xzxkxx.service.WFXXManager;
+import com.nbw.xzxkxx.service.XZXKXXManager;
+
+/**
+ * 
+ * @author cft
+ *
+ */
+
+public class ImportInfoController  extends NbwController {
+
+	
+	private ImportInfoManager importInfoManager;
+	private JBXXManager jbxxManager;
+	private XZXKXXManager xzxkxxManager;
+	private JLXXManager jlxxManager;
+	private JDJCBHGXXManager jdjcbhgxxManager;
+	private WFXXManager wfxxManager;
+	private CPCCBHGXXManager cpccbhgxxManager;
+	private XYPJBManager xypjbManager;
+	
+	private REPORTTYPEManager reporttypeManager;
+	private RZRKXXManager rzrkxxManager;
+	public List list=null;
+	public Map<String,Integer> map=null;
+	public XZXKXXManager getXzxkxxManager() {
+		return xzxkxxManager;
+	}
+
+	public void setXzxkxxManager(XZXKXXManager xzxkxxManager) {
+		this.xzxkxxManager = xzxkxxManager;
+	}
+
+	public JLXXManager getJlxxManager() {
+		return jlxxManager;
+	}
+
+	public void setJlxxManager(JLXXManager jlxxManager) {
+		this.jlxxManager = jlxxManager;
+	}
+
+	public JDJCBHGXXManager getJdjcbhgxxManager() {
+		return jdjcbhgxxManager;
+	}
+
+	public void setJdjcbhgxxManager(JDJCBHGXXManager jdjcbhgxxManager) {
+		this.jdjcbhgxxManager = jdjcbhgxxManager;
+	}
+
+	public WFXXManager getWfxxManager() {
+		return wfxxManager;
+	}
+
+	public void setWfxxManager(WFXXManager wfxxManager) {
+		this.wfxxManager = wfxxManager;
+	}
+
+	public CPCCBHGXXManager getCpccbhgxxManager() {
+		return cpccbhgxxManager;
+	}
+
+	public void setCpccbhgxxManager(CPCCBHGXXManager cpccbhgxxManager) {
+		this.cpccbhgxxManager = cpccbhgxxManager;
+	}
+
+	public XYPJBManager getXypjbManager() {
+		return xypjbManager;
+	}
+
+	public void setXypjbManager(XYPJBManager xypjbManager) {
+		this.xypjbManager = xypjbManager;
+	}
+
+	public JBXXManager getJbxxManager() {
+		return jbxxManager;
+	}
+
+	public void setJbxxManager(JBXXManager jbxxManager) {
+		this.jbxxManager = jbxxManager;
+	}
+
+	public ModelAndView ToUpload(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+	
+		List<REPORTTYPE>  reporttypeList=this.reporttypeManager.getAll();
+		request.setAttribute("reporttypeList", reporttypeList);
+		return new ModelAndView("back/fileUpdate");
+	}
+
+	
+		
+	public ModelAndView ToImportList(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+	
+		int pageSize = 2;
+		int page = 1;
+		if (request.getParameter("page") != null) {
+			String pageString = (String) request.getParameter("page");
+			try {
+				page = Integer.parseInt(pageString);
+			} catch (NumberFormatException e) {
+				System.out.println("数字类型错误:" + e.getMessage());
+			}
+		}
+		if(request.getParameter("pageSize")!=null){
+			pageSize = Integer.parseInt(request.getParameter("pageSize"));
+		}
+		
+		String importtypeid=request.getParameter("importtypeid");
+		String importfile=request.getParameter("importfile");
+		String startdate=request.getParameter("startdate");
+		String enddate=request.getParameter("enddate");
+		if(importtypeid!=null&&!importtypeid.equals(""))
+		{
+			importtypeid=URLDecoder.decode(importtypeid,"UTF-8");
+			request.setAttribute("importtypeid", importtypeid);
+		}
+		if(importfile!=null&&!importfile.equals(""))
+		{
+			importfile=URLDecoder.decode(importfile,"UTF-8");
+			request.setAttribute("importfile", importfile);
+		}
+		if(startdate!=null&&!startdate.equals(""))
+		{
+			startdate=URLDecoder.decode(startdate,"UTF-8");
+			request.setAttribute("startdate", startdate);
+		}
+		if(enddate!=null&&!enddate.equals(""))
+		{
+			enddate=URLDecoder.decode(enddate,"UTF-8");
+			request.setAttribute("enddate", enddate);
+		}
+		List<REPORTTYPE> reporttypeList=this.reporttypeManager.getAll();
+		
+		request.setAttribute("reporttypeList", reporttypeList);
+		PageBean  importList= this.importInfoManager.findByPropertities(importtypeid, importfile, startdate, enddate, page, pageSize);
+		
+		
+		return new ModelAndView("back/importList","importList",importList);
+	}
+	
+	
+	
+	
+	
+	public ImportInfoManager getImportInfoManager() {
+		return importInfoManager;
+	}
+
+
+	//根据更新表的数据类型更新表id，转到不同的列表页上去
+	
+	public ModelAndView ToDifByType(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+	
+		String importinfoid=request.getParameter("importtypeid");
+		ImportInfo im=this.importInfoManager.getByID(importinfoid);
+		String importtypeid=im.getImporttypeid();
+		if(importtypeid.equals("1"))
+		{
+			
+				PageBean jbxxList=this.jbxxManager.getPageBy(null,null,1,3);
+				return new ModelAndView("back/jbxxList","jbxxList",jbxxList);
+			
+		}
+		else if(importtypeid.equals("2"))
+
+		{
+			
+			PageBean xzxkxxList=this.xzxkxxManager.getPageBy(null,null,1,3);
+			return new ModelAndView("back/xzxkxxList","xzxkxxList",xzxkxxList);
+			
+		}
+		else if(importtypeid.equals("3"))
+
+		{
+			
+			PageBean jbxxList=this.jbxxManager.getPageBy(null,null,1,3);
+			return new ModelAndView("back/jbxxList","jbxxList",jbxxList);
+			
+		}
+		else if(importtypeid.equals("4"))
+
+		{
+			
+			PageBean jbxxList=this.jbxxManager.getPageBy(null,null,1,3);
+			return new ModelAndView("back/jbxxList","jbxxList",jbxxList);
+			
+		}
+		else if(importtypeid.equals("5"))
+
+		{
+			
+			PageBean jbxxList=this.jbxxManager.getPageBy(null,null,1,3);
+			return new ModelAndView("back/jbxxList","jbxxList",jbxxList);
+			
+		}
+		else if(importtypeid.equals("6"))
+
+		{
+			
+			PageBean jbxxList=this.jbxxManager.getPageBy(null,null,1,3);
+			return new ModelAndView("back/jbxxList","jbxxList",jbxxList);
+			
+		}
+		else if(importtypeid.equals("7"))
+
+		{
+			
+			PageBean jbxxList=this.jbxxManager.getPageBy(null,null,1,3);
+			return new ModelAndView("back/jbxxList","jbxxList",jbxxList);
+			
+		}
+		else if(importtypeid.equals("8"))
+
+		{
+			
+			PageBean jbxxList=this.jbxxManager.getPageBy(null,null,1,3);
+			return new ModelAndView("back/jbxxList","jbxxList",jbxxList);
+			
+		}
+		
+		return null;
+	}
+	
+	
+	
+
+	public ModelAndView frontToPage(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+	
+		int pageSize = 3;
+		int page = 1;
+		if (request.getParameter("page") != null) {
+			String pageString = (String) request.getParameter("page");
+			try {
+				page = Integer.parseInt(pageString);
+			} catch (NumberFormatException e) {
+				System.out.println("数字类型错误:" + e.getMessage());
+			}
+		}
+		if(request.getParameter("pageSize")!=null){
+			pageSize = Integer.parseInt(request.getParameter("pageSize"));
+		}
+		
+		
+		//PageBean this.jbxxManager.getPageBy(null, null, page, pageSize);
+		
+		
+		
+		
+		
+		return new ModelAndView("back/fileUpdate");
+	}
+	
+	
+	
+	
+	
+
+
+	public void setImportInfoManager(ImportInfoManager importInfoManager) {
+		this.importInfoManager = importInfoManager;
+	}
+
+
+
+
+	@Override
+	protected void convertStringToDate(HttpServletRequest request,
+			Object command) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+	//转到信用评价表的搜索显示列表
+	public ModelAndView toPageXYPJBSearch(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+	
+		String asscodes=request.getParameter("asscodes");
+		String asscomname=request.getParameter("asscomname");
+		String asslevel=request.getParameter("asslevel");
+		String asstime=request.getParameter("asstime");
+		String assdivision=request.getParameter("assdivision");
+		String assclass=request.getParameter("assclass");
+		
+		
+		
+		int pageSize = 2;
+		int page = 1;
+		if (request.getParameter("page") != null) {
+			String pageString = (String) request.getParameter("page");
+			try {
+				page = Integer.parseInt(pageString);
+			} catch (NumberFormatException e) {
+				System.out.println("数字类型错误:" + e.getMessage());
+			}
+		}
+		if(request.getParameter("pageSize")!=null){
+			pageSize = Integer.parseInt(request.getParameter("pageSize"));
+		}
+		
+		if(asscodes!=null&&!asscodes.equals(""))
+		{
+			asscodes=URLDecoder.decode(asscodes,"UTF-8");
+			request.setAttribute("asscodes", asscodes);
+			
+			
+			
+		}
+		
+		if(asscomname!=null&&!asscomname.equals(""))
+		{
+			asscomname=URLDecoder.decode(asscomname,"UTF-8");
+			request.setAttribute("asscomname", asscomname);
+		}
+		if(asslevel!=null&&!asslevel.equals(""))
+		{
+			asslevel=URLDecoder.decode(asslevel,"UTF-8");
+			request.setAttribute("asslevel", asslevel);
+		}
+		if(asstime!=null&&!asstime.equals(""))
+		{
+			asstime=URLDecoder.decode(asstime,"UTF-8");
+			request.setAttribute("asstime", asstime);
+		}
+		if(assdivision!=null&&!assdivision.equals(""))
+		{
+			assdivision=URLDecoder.decode(assdivision,"UTF-8");
+			request.setAttribute("assdivision", assdivision);
+		}
+		if(assclass!=null&&!assclass.equals(""))
+		{
+			assclass=URLDecoder.decode(assclass,"UTF-8");
+			request.setAttribute("assclass", assclass);
+		}
+		
+			
+		PageBean xypjbList=	this.xypjbManager.getPager(asscodes, asscomname, asslevel, asstime, assdivision, assclass, page, pageSize);
+		list=xypjbList.getList();
+	
+		return new ModelAndView("xypjb/xypjbSearch","xypjbList",xypjbList);
+	}
+	//统计信用等级
+	public ModelAndView toCountShow(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+	
+		
+		String enddate =request.getParameter("enddate");
+		Map<String,Integer> map= this.xypjbManager.countBY(enddate);
+		request.setAttribute("enddate", enddate);
+		StringBuffer xml=new StringBuffer("<chart caption='企业信用等级统计'  outCnvBaseFontSize ='24' showValues='1' decimals='0' formatNumberScale='0'  bgColor='#F5F8FF'>");
+		StringBuffer xml2=new StringBuffer("<chart yAxisName='企业个数' caption='企业信用等级统计' numberPrefix='' showBorder='1' imageSave='1' exportHandler='http://export.api3.fusioncharts.com'>");
+		
+		for(Map.Entry<String, Integer> entry:map.entrySet())
+		{
+			if(entry.getKey().equals("all"))
+			{
+				continue;
+			}
+			xml.append(" <set label='"+entry.getKey()+"'"+" value='"+entry.getValue()+"' />");
+			xml2.append(" <set label='"+entry.getKey()+"' value='"+entry.getValue()+"'  />");
+			
+			
+			
+		}
+		xml.append("</chart>");
+		xml2.append("</chart>");
+		String str=xml.toString();
+		String str2=xml2.toString();
+		for(Map.Entry<String, Integer> entry:map.entrySet())
+		{
+			request.setAttribute(entry.getKey(), entry.getValue());
+		}
+		
+		
+		request.setAttribute("str", str);
+		request.setAttribute("str2", str2);
+		this.map=map;
+		return new ModelAndView("xypjb/countShow","map",map);
+	}
+
+	
+	
+	
+	//输数xls的功能
+	
+	public ModelAndView toOutput(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+	
+		
+		 	response.setHeader("Content-Disposition","attachment;filename=exportdata.xls");//指定下载的文件名  
+		 	response.setContentType("application/vnd.ms-excel");  
+		      
+		 	Export  ex = new Export();   
+		    List list = this.list;
+		    ex.buildExcel(list, "exportdata.xls",response.getOutputStream());  
+		
+		return null;
+	}
+	
+	//输出信用等级统计的列表
+	public ModelAndView toOutputCount(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+	
+		
+		 	response.setHeader("Content-Disposition","attachment;filename=countdata.xls");//指定下载的文件名  
+		 	response.setContentType("application/vnd.ms-excel");  
+		      
+		 	Export  ex = new Export();   
+		    Map map  = this.map;
+		    ex.buildExcelMap(map, "countdata.xls",response.getOutputStream());  
+		
+		return null;
+	}
+	//企业基本信息分页列表
+	public ModelAndView toJBXXList(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+
+		String comcodes=request.getParameter("comcodes");
+		String comorgname=request.getParameter("comorgname");
+		
+		int pageSize = 2;
+		int page = 1;
+		if (request.getParameter("page") != null) {
+			String pageString = (String) request.getParameter("page");
+			try {
+				page = Integer.parseInt(pageString);
+			} catch (NumberFormatException e) {
+				System.out.println("数字类型错误:" + e.getMessage());
+			}
+		}
+		if(request.getParameter("pageSize")!=null){
+			pageSize = Integer.parseInt(request.getParameter("pageSize"));
+		}
+		if(comcodes!=null&&!comcodes.equals(""))
+		{
+			comcodes=URLDecoder.decode(comcodes,"UTF-8");
+			request.setAttribute("comcodes", comcodes);
+		}
+		
+		if(comorgname!=null&&!comorgname.equals(""))
+		{
+			comorgname=URLDecoder.decode(comorgname,"UTF-8");
+			request.setAttribute("comorgname", comorgname);
+		}
+		
+	PageBean jbxxList=	this.jbxxManager.getPageBy(comcodes, comorgname, page, pageSize);
+	return new ModelAndView("back/jbxxList","jbxxList",jbxxList);
+	}
+	//行政许可信息分页列表
+	public ModelAndView toXZXKXXList(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+		String admcodes=request.getParameter("admcodes");
+		String admcomname=request.getParameter("admcomname");
+		
+		int pageSize = 2;
+		int page = 1;
+		if (request.getParameter("page") != null) {
+			String pageString = (String) request.getParameter("page");
+			try {
+				page = Integer.parseInt(pageString);
+			} catch (NumberFormatException e) {
+				System.out.println("数字类型错误:" + e.getMessage());
+			}
+		}
+		if(request.getParameter("pageSize")!=null){
+			pageSize = Integer.parseInt(request.getParameter("pageSize"));
+		}
+		if(admcodes!=null&&!admcodes.equals(""))
+		{
+			admcodes=URLDecoder.decode(admcodes,"UTF-8");
+			request.setAttribute("admcodes", admcodes);
+		}
+		
+		if(admcomname!=null&&!admcomname.equals(""))
+		{
+			admcomname=URLDecoder.decode(admcomname,"UTF-8");
+			request.setAttribute("admcomname", admcomname);
+		}
+	PageBean xzxkxxList=	this.xzxkxxManager.getPageBy(admcodes, admcomname, page, pageSize);
+		
+		
+	return new ModelAndView("back/xzxkxxList","xzxkxxList",xzxkxxList);
+	}
+	//奖励信息分页列表
+	public ModelAndView toJLXXList(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+		String rewcods=request.getParameter("rewcods");
+		String rewcomname=request.getParameter("rewcomname");
+		
+		int pageSize = 2;
+		int page = 1;
+		if (request.getParameter("page") != null) {
+			String pageString = (String) request.getParameter("page");
+			try {
+				page = Integer.parseInt(pageString);
+			} catch (NumberFormatException e) {
+				System.out.println("数字类型错误:" + e.getMessage());
+			}
+		}
+		if(request.getParameter("pageSize")!=null){
+			pageSize = Integer.parseInt(request.getParameter("pageSize"));
+		}
+		if(rewcods!=null&&!rewcods.equals(""))
+		{
+			rewcods=URLDecoder.decode(rewcods,"UTF-8");
+			request.setAttribute("rewcods", rewcods);
+		}
+		
+		if(rewcomname!=null&&!rewcomname.equals(""))
+		{
+			rewcomname=URLDecoder.decode(rewcomname,"UTF-8");
+			request.setAttribute("rewcomname", rewcomname);
+		}
+	PageBean jlxxList=	this.jlxxManager.getPageBy(rewcods, rewcomname, page, pageSize);
+		
+		
+	return new ModelAndView("back/jlxxList","jlxxList",jlxxList);
+	}
+	//认证认可信息分页列表
+	public ModelAndView toRZRKXXList(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+		String accorgcodes=request.getParameter("accorgcodes");
+		String acccomname=request.getParameter("acccomname");
+		
+		int pageSize = 2;
+		int page = 1;
+		if (request.getParameter("page") != null) {
+			String pageString = (String) request.getParameter("page");
+			try {
+				page = Integer.parseInt(pageString);
+			} catch (NumberFormatException e) {
+				System.out.println("数字类型错误:" + e.getMessage());
+			}
+		}
+		if(request.getParameter("pageSize")!=null){
+			pageSize = Integer.parseInt(request.getParameter("pageSize"));
+		}
+		if(accorgcodes!=null&&!accorgcodes.equals(""))
+		{
+			accorgcodes=URLDecoder.decode(accorgcodes,"UTF-8");
+			request.setAttribute("accorgcodes", accorgcodes);
+		}
+		
+		if(acccomname!=null&&!acccomname.equals(""))
+		{
+			acccomname=URLDecoder.decode(acccomname,"UTF-8");
+			request.setAttribute("acccomname", acccomname);
+		}
+	PageBean rzrkxxList=	this.rzrkxxManager.getPageBy(accorgcodes, acccomname, page, pageSize);
+		
+		
+	return new ModelAndView("back/rzrkxxList","rzrkxxList",rzrkxxList);
+	}
+	
+	
+	//违法信息列表分页
+	public ModelAndView toWFXXList(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+		String illcodes=request.getParameter("illcodes");
+		String illcomname=request.getParameter("illcomname");
+		
+		int pageSize = 2;
+		int page = 1;
+		if (request.getParameter("page") != null) {
+			String pageString = (String) request.getParameter("page");
+			try {
+				page = Integer.parseInt(pageString);
+			} catch (NumberFormatException e) {
+				System.out.println("数字类型错误:" + e.getMessage());
+			}
+		}
+		if(request.getParameter("pageSize")!=null){
+			pageSize = Integer.parseInt(request.getParameter("pageSize"));
+		}
+		if(illcodes!=null&&!illcodes.equals(""))
+		{
+			illcodes=URLDecoder.decode(illcodes,"UTF-8");
+			request.setAttribute("illcodes", illcodes);
+		}
+		
+		if(illcomname!=null&&!illcomname.equals(""))
+		{
+			illcomname=URLDecoder.decode(illcomname,"UTF-8");
+			request.setAttribute("illcomname", illcomname);
+		}
+	PageBean wfxxList=	this.wfxxManager.getPageBy(illcodes, illcomname, page, pageSize);
+		
+		
+	return new ModelAndView("back/wfxxList","wfxxList",wfxxList);
+	}
+	//监督检查不合格信息列表
+	public ModelAndView toJDJCBHGXXList(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+		String checodes=request.getParameter("checodes");
+		String checomname=request.getParameter("checomname");
+		
+		int pageSize = 2;
+		int page = 1;
+		if (request.getParameter("page") != null) {
+			String pageString = (String) request.getParameter("page");
+			try {
+				page = Integer.parseInt(pageString);
+			} catch (NumberFormatException e) {
+				System.out.println("数字类型错误:" + e.getMessage());
+			}
+		}
+		if(request.getParameter("pageSize")!=null){
+			pageSize = Integer.parseInt(request.getParameter("pageSize"));
+		}
+		if(checodes!=null&&!checodes.equals(""))
+		{
+			checodes=URLDecoder.decode(checodes,"UTF-8");
+			request.setAttribute("checodes", checodes);
+		}
+		
+		if(checomname!=null&&!checomname.equals(""))
+		{
+			checomname=URLDecoder.decode(checomname,"UTF-8");
+			request.setAttribute("checomname", checomname);
+		}
+	PageBean jdjcbhgList=	this.jdjcbhgxxManager.getPageBy(checodes, checomname, page, pageSize);
+		
+		
+	return new ModelAndView("back/jdjcbhgxxList","jdjcbhgList",jdjcbhgList);
+	}
+	//产品抽查不合格信息列表
+	public ModelAndView toCPCCBHGXXList(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+		String rancodes=request.getParameter("rancodes");
+		String rancomname=request.getParameter("rancomname");
+		
+		int pageSize = 2;
+		int page = 1;
+		if (request.getParameter("page") != null) {
+			String pageString = (String) request.getParameter("page");
+			try {
+				page = Integer.parseInt(pageString);
+			} catch (NumberFormatException e) {
+				System.out.println("数字类型错误:" + e.getMessage());
+			}
+		}
+		if(request.getParameter("pageSize")!=null){
+			pageSize = Integer.parseInt(request.getParameter("pageSize"));
+		}
+		if(rancodes!=null&&!rancodes.equals(""))
+		{
+			rancodes=URLDecoder.decode(rancodes,"UTF-8");
+			request.setAttribute("rancodes", rancodes);
+		}
+		
+		if(rancomname!=null&&!rancomname.equals(""))
+		{
+			rancomname=URLDecoder.decode(rancomname,"UTF-8");
+			request.setAttribute("rancomname", rancomname);
+		}
+	PageBean cpccbhgxxList=	this.cpccbhgxxManager.getPageBy(rancodes, rancomname, page, pageSize);
+		
+		
+	return new ModelAndView("back/cpccbhgxxList","cpccbhgxxList",cpccbhgxxList);
+	}
+	//删除产品抽查不合格信息
+	public ModelAndView deleteCPCCBHGXXByID(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+		String cpccbhgxxid=request.getParameter("objectId");
+		this.cpccbhgxxManager.deleteById(cpccbhgxxid);
+		PageBean cpccbhgxxList=	this.cpccbhgxxManager.getPageBy(null, null, 1, 3);
+		
+		return new ModelAndView("back/cpccbhgxxList","cpccbhgxxList",cpccbhgxxList);
+	}
+	
+	//删除监督检查不合格信息
+	public ModelAndView deleteJDJCBHGXXByID(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+		String jdjcbhgxxid=request.getParameter("objectId");
+		this.jdjcbhgxxManager.deleteById(jdjcbhgxxid);
+		PageBean jdjcbhgList=	this.jdjcbhgxxManager.getPageBy(null, null, 1, 3);
+		
+		return new ModelAndView("back/jdjcbhgxxList","jdjcbhgList",jdjcbhgList);
+	}
+	//删除违法信息
+	public ModelAndView deleteWFXXByID(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+		String wfxxid=request.getParameter("objectId");
+		this.wfxxManager.deleteById(wfxxid);
+		PageBean wfxxList=	this.wfxxManager.getPageBy(null, null, 1, 3);
+		
+		return new ModelAndView("back/wfxxList","wfxxList",wfxxList);
+	}
+	//删除奖励信息
+	public ModelAndView deleteJLXXByID(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+		String jlxxid=request.getParameter("objectId");
+		this.jlxxManager.deleteById(jlxxid);
+		PageBean jlxxList=	this.jlxxManager.getPageBy(null, null, 1, 3);
+		
+		return new ModelAndView("back/jlxxList","jlxxList",jlxxList);
+	}
+	//删除基本信息
+	public ModelAndView deleteJBXXByID(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+		String jbxxid=request.getParameter("objectId");
+		this.jbxxManager.deleteById(jbxxid);
+		PageBean jbxxList=	this.jbxxManager.getPageBy(null, null, 1, 3);
+		
+		return new ModelAndView("back/jbxxList","jbxxList",jbxxList);
+	}
+	//删除强制性认证认可信息
+	public ModelAndView deleteRZRKXXByID(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+		String rzrkxxid=request.getParameter("objectId");
+		this.rzrkxxManager.deleteById(rzrkxxid);
+		PageBean rzrkxxList=	this.rzrkxxManager.getPageBy(null, null, 1, 3);
+		
+		return new ModelAndView("back/rzrkxxList","rzrkxxList",rzrkxxList);
+	}
+	//删除行政许信息
+	public ModelAndView deleteXZXKXXByID(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+		String xzxkxxid=request.getParameter("objectId");
+		this.xzxkxxManager.deleteById(xzxkxxid);
+		PageBean xzxkxxList=	this.xzxkxxManager.getPageBy(null, null, 1, 3);
+		
+		return new ModelAndView("back/xzxkxxList","xzxkxxList",xzxkxxList);
+	}
+	
+	//删除插入列表信息
+	public ModelAndView deleteImportByID(HttpServletRequest request,
+			HttpServletResponse response, ImportInfo command, BindException errors)
+			throws ServletException, IOException {
+		String importid=request.getParameter("objectId");
+		this.importInfoManager.deleteById(importid);
+		PageBean importList=	this.importInfoManager.findByPropertities(null, null, null, null, 1, 3);
+		
+		return new ModelAndView("back/importList","importList",importList);
+	}
+	
+	public REPORTTYPEManager getReporttypeManager() {
+		return reporttypeManager;
+	}
+
+	public void setReporttypeManager(REPORTTYPEManager reporttypeManager) {
+		this.reporttypeManager = reporttypeManager;
+	}
+
+	public RZRKXXManager getRzrkxxManager() {
+		return rzrkxxManager;
+	}
+
+	public void setRzrkxxManager(RZRKXXManager rzrkxxManager) {
+		this.rzrkxxManager = rzrkxxManager;
+	}
+	
+	
+	
+	
+	
+	
+}

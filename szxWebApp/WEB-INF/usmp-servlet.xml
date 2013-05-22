@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	default-autowire="byName"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans         
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean class="com.nbw.sys.web.action.SelectController"
+		name="/select.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>java.lang.Object</value>
+		</property>
+	</bean>
+	<bean class="com.nbw.sys.dao.SysUsersDAO" id="sysUsersDAO"
+		parent="baseDao" />
+	<bean id="sysUsersManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.sys.service.SysUsersManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.sys.web.action.SysUsersController"
+		name="/sysusers.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.sys.domain.SysUsers</value>
+		</property>
+	</bean>
+	<bean class="com.nbw.sys.dao.SysRolesDAO" id="sysRolesDAO"
+		parent="baseDao" />
+	<bean id="sysRolesManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.sys.service.SysRolesManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.sys.web.action.SysRolesController"
+		name="/sysroles.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.sys.domain.SysRoles</value>
+		</property>
+	</bean>
+	<bean class="com.nbw.sys.dao.SysModulesDAO" id="sysModulesDAO"
+		parent="baseDao" />
+	<bean id="sysModulesManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.sys.service.SysModulesManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.sys.web.action.SysModulesController"
+		name="/sysmodules.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.sys.domain.SysModules</value>
+		</property>
+	</bean>
+	<bean class="com.nbw.sys.dao.SysOrganizationsDAO"
+		id="sysOrganizationsDAO" parent="baseDao" />
+	<bean id="sysOrganizationsManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.sys.service.SysOrganizationsManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.sys.web.action.SysOrganizationsController"
+		name="/sysorganizations.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.sys.domain.SysOrganizations</value>
+		</property>
+	</bean>
+	<bean class="com.nbw.sys.dao.SysCodesDAO" id="sysCodesDAO"
+		parent="baseDao" />
+	<bean id="sysCodesManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.sys.service.SysCodesManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.sys.web.action.SysCodesController"
+		name="/syscodes.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.sys.domain.SysCodes</value>
+		</property>
+	</bean>
+
+	<bean class="com.nbw.sys.dao.SysFieldConfigDAO"
+		id="sysFieldConfigDAO" parent="baseDao" />
+	<bean id="sysFieldConfigManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.sys.service.SysFieldConfigManager"
+				init-method="init" />
+		</property>
+	</bean>
+	<bean class="com.nbw.sys.web.action.SysFieldConfigController"
+		name="/sysfieldcfg.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>java.lang.Object</value>
+		</property>
+	</bean>
+
+	<bean class="com.nbw.sys.dao.SysSystemLogsDAO" id="sysSystemLogsDAO"
+		parent="baseDao" />
+	<bean id="sysSystemLogsManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.sys.service.SysSystemLogsManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.sys.web.action.SysSystemLogsController"
+		name="/syslogs.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.sys.domain.SysSystemLogs</value>
+		</property>
+	</bean>
+
+	<bean class="com.nbw.sys.dao.SysResourcesDAO" id="sysResourcesDAO"
+		parent="baseDao" />
+	<bean id="sysResourcesManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.sys.service.SysResourcesManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.sys.web.action.SysReourcesController"
+		name="/sysres.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.sys.domain.SysResources</value>
+		</property>
+	</bean>
+
+	<!-- 地图信息 -->
+	<bean class="com.nbw.sys.dao.CenetreMapDAO" id="cenetreMapDAO"
+		parent="baseDao" />
+	<bean id="cenetreMapManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.sys.service.CenetreMapManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.sys.web.action.CenetreMapController"
+		name="/sysmap.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>java.lang.Object</value>
+		</property>
+	</bean>
+	
+
+	<bean class="com.nbw.sys.web.action.SysLoginController"
+		name="/login.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.sys.domain.SysUsers</value>
+		</property>
+	</bean>
+
+	
+	<!-- spring动态获取bean帮助类。实现了ApplicationContextAware接口，在程序启动的时候加载 -->
+	<bean id="springContext" class="com.nbw.common.SpringContextHelper"></bean>
+</beans>

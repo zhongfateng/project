@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee  http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	
+	<display-name>szxWebApp</display-name>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	<context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>/WEB-INF/classes/log4j.properties</param-value>
+    </context-param>
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<servlet>
+		<servlet-name>szxWebApp</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+				/WEB-INF/szxWebApp-servlet.xml,/WEB-INF/usmp-servlet.xml,/WEB-INF/jbxxcx-servlet.xml,/WEB-INF/timeset-servlet.xml,/WEB-INF/dataupdate-servlet.xml,
+				/WEB-INF/hygl-servlet.xml,/WEB-INF/resource-servlet.xml,
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+		<!-- 
+			CA登录配置
+			[说明]
+			在服务器启动时配置CVM并初始化不是必需的，
+			但在使用CVM模块前必须调用CVM.config(configFileName)，config方法是静态全局的
+		-->
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.cqcca.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EncServlet</servlet-name>
+  	<servlet-class>com.cqcca.servlet.EncServlet</servlet-class>
+  </servlet>
+     <servlet>
+  	<servlet-name>UkManagerServlet</servlet-name>
+  	<servlet-class>com.cqcca.servlet.UkManagerServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet-mapping>
+    <servlet-name>EncServlet</servlet-name>
+    <url-pattern>/EncServlet</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>UkManagerServlet</servlet-name>
+    <url-pattern>/UkManagerServlet</url-pattern>
+  </servlet-mapping>
+	<!-- 加载系统参数文件 
+	<listener>
+<listener-class>com.nbw.common.funListener</listener-class>
+</listener>-->
+	<!-- 加载系统参数文件 -->
+	<servlet>
+		<servlet-name>LoadSysParameter</servlet-name>
+		<servlet-class>
+			com.nbw.common.LoadSysParamServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>szxWebApp</servlet-name>
+		<url-pattern>*.action</url-pattern>
+	</servlet-mapping>
+
+
+<servlet>
+    <servlet-name>Return_urlServlet</servlet-name>
+    <servlet-class>com.alipay.servlet.Return_urlServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Notify_urlServlet</servlet-name>
+    <servlet-class>com.alipay.servlet.Notify_urlServlet</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>Return_urlServlet</servlet-name>
+    <url-pattern>/Return_urlServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Notify_urlServlet</servlet-name>
+    <url-pattern>/Notify_urlServlet</url-pattern>
+  </servlet-mapping>
+	
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	
+	<!-- Spring 刷新Introspector防止内存泄露 -->
+	<listener>
+		<listener-class>
+			org.springframework.web.util.IntrospectorCleanupListener
+		</listener-class>
+	</listener>
+
+	<!-- session超时定义,单位为分钟 -->
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<!-- 403 页面不存在错误 -->
+	<error-page>
+		<error-code>403</error-code>
+		<location>/httperror403.jsp</location>
+	</error-page>
+	<!-- 404 页面不存在错误-->
+	<!---->  <error-page>
+		<error-code>404</error-code>
+		<location>/httperror404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/httperror500.jsp</location>
+	</error-page>
+	
+	<jsp-config>
+		<taglib>
+			<taglib-uri>/WEB-INF/tld/sys-check</taglib-uri>
+			<taglib-location>
+				/WEB-INF/tld/sys-check.tld
+			</taglib-location>
+		</taglib>
+	</jsp-config>
+	<mime-mapping>
+        <extension>zip</extension>
+        <mime-type>application/zip</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>rar</extension>
+        <mime-type>application/rar</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>exe</extension>
+        <mime-type>application/octet-stream</mime-type>
+    </mime-mapping>
+</web-app>

@@ -1,0 +1,3 @@
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/component/dhtmlxTabbar/dhtmlxtabbar.css">
+<script language="JavaScript" type="text/javascript" src="<%=request.getContextPath()%>/resources/component/dhtmlxTabbar/dhtmlxtabbar.js"></script>
+<script language="JavaScript" type="text/javascript" src="<%=request.getContextPath()%>/resources/component/dhtmlxTabbar/dhtmlxcontainer.js"></script>

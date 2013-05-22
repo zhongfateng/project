@@ -1,0 +1,3 @@
+<script language="JavaScript" type="text/javascript" src="<%=request.getContextPath()%>/resources/component/dhtmlxGrid/ext/dhtmlxgrid_pgn.js"></script>
+<script language="JavaScript" type="text/javascript" src="<%=request.getContextPath()%>/resources/component/dhtmlxToolbar/dhtmlxtoolbar.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/component/dhtmlxToolbar/skins/dhtmlxtoolbar_<%=gridSkin %>.css"/>

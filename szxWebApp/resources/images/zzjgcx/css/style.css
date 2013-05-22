@@ -1,0 +1,19 @@
+/* CSS Document */
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color:#ffffff;
+	}
+
+.input1 { font:"黑体";border:none; background:url(image/usd.png) no-repeat; height:48px; line-height:46px; width:316px; font-size:16px; color:#36628b; padding-left:60px;}
+.input2 { font:"黑体";border:none; background:url(image/psd.png) no-repeat; height:48px; line-height:46px; width:316px; font-size:16px; color:#36628b; padding-left:60px;}
+.input3 { font:"黑体";border:none; background:url(image/yzm.png) no-repeat; height:40px; line-height:38px; width:145px; font-size:16px; color:#36628b;padding-left:10px;}
+.input4 { font:"黑体";border:none; background-color: #458ccc; height:25px; line-height:25px; font-size:16px; color:#36628b;padding-left:10px;}
+
+
+.hei14B{	font-size: 14px;	color: #000000; line-height:25px; font:"宋体"; font-weight:bold;}
+a.hei14B:link,a.hei14B:visited {font-family: "宋体";font-size: 14px;line-height: 17px;color: #000000; line-height:25px; font-weight:bold;}
+a.hei14B:hover,a.hei14B:active {font-family: "宋体";font-size: 14px;line-height: 17px;color: #F88803; line-height:25px; font-weight:bold;}

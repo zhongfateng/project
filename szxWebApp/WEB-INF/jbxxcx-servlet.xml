@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-autowire="byName"
+	default-lazy-init="true"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans     
+	    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean class="com.nbw.jbxx.dao.JBXXDao" id="jbxxdao" parent="baseDao" />
+	
+	<bean id="jbxxManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.jbxx.service.JBXXManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.xzxkxx.dao.XZXKXXDao" id="xzxkxxDao" parent="baseDao" />
+	
+	<bean id="xzxkxxManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.xzxkxx.service.XZXKXXManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.xzxkxx.dao.RZRKXXDao" id="rzrkxxDao" parent="baseDao" />
+	
+	<bean id="rzrkxxManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.xzxkxx.service.RZRKXXManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.xzxkxx.dao.JLXXDao" id="jlxxDao" parent="baseDao" />
+	
+	<bean id="jlxxManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.xzxkxx.service.JLXXManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.xzxkxx.dao.JDJCBHGXXDao" id="jdjcbhgxxDao" parent="baseDao" />
+	
+	<bean id="jdjcbhgxxManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.xzxkxx.service.JDJCBHGXXManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.xzxkxx.dao.WFXXDao" id="wfxxDao" parent="baseDao" />
+	
+	<bean id="wfxxManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.xzxkxx.service.WFXXManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.xzxkxx.dao.CPCCBHGXXDao" id="cpccbhgxxDao" parent="baseDao" />
+	
+	<bean id="cpccbhgxxManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.xzxkxx.service.CPCCBHGXXManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.jbxx.dao.XYPJBDao" id="xypjbDao" parent="baseDao" />
+	
+	<bean id="xypjbManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.jbxx.service.XYPJBManager" />
+		</property>
+	</bean>
+	
+	<bean class="com.nbw.jbxx.web.action.JBXXController" name="/jbxx.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.jbxx.domain.JBXX</value>
+		</property>
+	</bean>
+	
+	
+	
+</beans>

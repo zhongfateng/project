@@ -1,0 +1,35 @@
+
+<table width="180" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <th align="left"  bgcolor="#0B66CB" style="color:#FFFFFF;font-size:28"><br>
+	 国家技术标准资源服务平台
+	</th>
+  </tr>
+  <tr>
+    <td align="center"  height="70" bgcolor="#F9F9F9" ><br>
+	 <ul style="list-style-type: none;width:898;">
+	  <li style="text-align: left;font-size:16;font-weight:bold ;" > 亲爱的${username}:  </li><br>
+        <li style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;欢迎光临国家技术标准资源服务平台! </li><br>
+		<li style="text-align: left;">&nbsp;&nbsp; &nbsp;&nbsp;${content}</li><br>
+		<li style="text-align: left;">&nbsp;&nbsp; &nbsp;&nbsp;如果您还想继续选购商品，可以点击链接<a href="http://www.standards-portal.cn/BzptWeb/appmanager/eip/main">国家技术标准资源服务平台</a> </li>
+		<li style="text-align: left;">&nbsp;&nbsp; &nbsp;&nbsp;如果您的email程序不支持链接点击，请将http://www.standards-portal.cn/BzptWeb/appmanager/eip/main地址拷贝至您的浏览器(如IE)的地址栏进入。 </li> 
+		<li style="text-align:right;">欢迎您的下次光临! </li><br>
+		<li style="text-align:right;">${sendTime} </li>		</ul>	
+	</td>
+  </tr>
+  <tr>
+	<td height="100" align="center" bgcolor="#FFFFFF" class="option">
+		<table width="938" border="0" cellspacing="0" cellpadding="0" >
+			  <tr>
+				<td height="100" align="center" bgcolor="0b66cb" style="font-size:12px;color:#ffffff;">
+				      京ICP备09001239号<br />
+				  网站管理：国家标准化管理委员会标准信息中心<br />
+				地址：北京海淀区马甸东路9号 邮编：100088 </td>
+			  </tr>
+		</table>
+	</td>
+  </tr>
+  <tr>
+    <td align="right">(这是一封自动产生的email，请勿回复。) </td>
+  </tr>
+</table>   

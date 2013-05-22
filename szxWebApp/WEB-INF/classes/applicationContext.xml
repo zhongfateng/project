@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:sysParameter.properties</value>
+		</property>
+	</bean>
+
+	 <bean id="myDataSource" 
+		class="org.logicalcobwebs.proxool.ProxoolDataSource"  >
+		<property name="driver">
+			<value>${proxool.driver}</value>
+		</property>
+		<property name="driverUrl">
+			<value>${proxool.url}</value>
+		</property>
+		<property name="user">
+			<value>${proxool.username}</value>
+		</property>
+		<property name="password">
+			<value>${proxool.password}</value>
+		</property>
+		<property name="alias">
+			<value>${proxool.alias}</value>
+		</property>
+		<property name="prototypeCount">
+			<value>${proxool.prototypeCount}</value>
+		</property>
+		<property name="maximumConnectionCount">
+			<value>${proxool.maximumConnectionCount}</value>
+		</property>
+		<property name="minimumConnectionCount">
+			<value>${proxool.minimumConnectionCount}</value>
+		</property>
+                <property name="houseKeepingTestSql">
+			<value>${proxool.houseKeepingTestSql}</value>
+		</property>
+                <property name="maximumActiveTime">
+			<value>${proxool.maximumActiveTime}</value>
+		</property>
+		<property name="trace">
+			<value>${proxool.trace}</value>
+		</property>
+		<property name="verbose">
+			<value>${proxool.verbose}</value>
+		</property>
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+		<property name="configLocation"
+			value="classpath:hibernate.cfg.xml">
+		</property>
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect=org.hibernate.dialect.Oracle9Dialect
+			</value>
+		</property>
+	</bean>
+
+	<bean id="baseTransactionProxy"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		abstract="true">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="add*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="edit*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="update*">
+					PROPAGATION_REQUIRED,-Exception
+				</prop>
+				<prop key="save*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="process*">
+					PROPAGATION_REQUIRED,-Exception
+				</prop>
+				<prop key="delete*">
+					PROPAGATION_REQUIRED,-Exception
+				</prop>
+				<prop key="execute*">
+					PROPAGATION_REQUIRED,-Exception
+				</prop>
+				<prop key="handle*">
+					PROPAGATION_REQUIRED,-Exception
+				</prop>
+				<prop key="*">
+					PROPAGATION_REQUIRED,readOnly,-Exception
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="baseDao" class="com.nbw.common.GenericDAO"
+		abstract="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	
+	
+	<!-- 发送邮件功能 -->
+	
+	<bean id="velocityEngine"   class = "org.springframework.ui.velocity.VelocityEngineFactoryBean" >  
+	        <property name="velocityProperties" >     
+	            <props>     
+	                <prop key="resource.loader" >class</prop>     
+	                <prop key="class.resource.loader.class" >     
+	                    org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader     
+	                </prop>     
+	                <prop key="velocimacro.library" ></prop>     
+	            </props>     
+	        </property>     
+	  </bean>  
+</beans>

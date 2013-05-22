@@ -1,0 +1,3 @@
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/component/dhtmlxMenu/skins/dhtmlxmenu_<%=gridSkin %>.css">
+<script language="JavaScript" type="text/javascript" src="<%=request.getContextPath()%>/resources/component/dhtmlxMenu/dhtmlxmenu.js"></script>
+<script language="JavaScript" type="text/javascript" src="<%=request.getContextPath()%>/resources/component/dhtmlxMenu/ext/dhtmlxmenu_ext.js"></script>

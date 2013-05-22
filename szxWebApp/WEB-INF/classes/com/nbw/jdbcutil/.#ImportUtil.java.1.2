@@ -1,0 +1,79 @@
+package com.nbw.jdbcutil;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+import com.nbw.common.util.GUID;
+import com.nbw.jbxx.domain.JBXX;
+
+public class ImportUtil {
+
+	public static int importData(List<JBXX> list, String id, String fileType) {
+
+		Connection conn = JDBCUtils.getConnection();
+		Statement stmt = null;
+		try {
+			stmt = conn.createStatement();
+			conn.setAutoCommit(false);
+			for (JBXX jb : list) {
+				String sql = "insert into"
+						+ " SMZ_JBXX(id,comcodes,comorgname,comagentname,comregittipy,comfounddate,comregitnum,comlinkman,comaddr,comscale,comendtime,comtel,comadmindiv,comagentid,comliseid,xlsfrom) "
+						+ "values('"
+						+ new GUID().toString()
+						+ "','"
+						+ jb.getComcodes()
+						+ "','"
+						+ jb.getComorgname()
+						+ "','"
+						+ jb.getComagentname()
+						+ "','"
+						+ jb.getComregittipy()
+						+ "',"
+						+ jb.getComfounddate()
+						+ ",'"
+						+ jb.getComregitnum()
+						+ "','"
+						+ jb.getComlinkman()
+						+ "','"
+						+ jb.getComaddr()
+						+ "','"
+						+ jb.getComscale()
+						+ "',"
+						+ jb.getComendtime()
+						+ ",'"
+						+ jb.getComtel()
+						+ "','"
+						+ jb.getComadmindiv()
+						+ "','"
+						+ jb.getComagentid()
+						+ "','"
+						+ jb.getComliseid()
+						+ "','" + id + "')";
+				stmt.addBatch(sql);
+			}
+			stmt.executeBatch();
+			conn.commit();
+			// 设置为自动提交,改为TRUE
+			conn.setAutoCommit(true);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+					conn.setAutoCommit(true);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+
+		}
+		JDBCUtils.release(conn, stmt, null);
+		return 0;
+
+	}
+
+}

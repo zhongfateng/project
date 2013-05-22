@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	default-autowire="byName" default-lazy-init="true"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans         http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	
+
+	<!-- 资源表的管理 -->
+	<bean class="com.nbw.xzxkxx.dao.TableFieldDAO" id="tableFieldDAO"
+		parent="baseDao" />
+	<bean id="tableFieldManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.xzxkxx.service.TableFieldManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.xzxkxx.web.action.TableFieldController"
+		name="/tField.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.xzxkxx.domain.SmzTablefield</value>
+		</property>
+	</bean>
+</beans>

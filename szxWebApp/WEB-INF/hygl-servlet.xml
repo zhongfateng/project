@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	default-autowire="byName" default-lazy-init="true"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans         http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	
+
+	<!-- 账户管理 -->
+	<bean class="com.nbw.hygl.dao.BzptZhDAO" id="bzptzhdao"
+		parent="baseDao" />
+	<bean id="bzptzhmanager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.hygl.service.BzptZhManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.hygl.web.action.BzptZhController"
+		name="/bzptzh.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.hygl.domain.BzptZh</value>
+		</property>
+	</bean>
+	<!-- 账户记录管理 -->
+	<bean class="com.nbw.hygl.dao.BzptZhJlDAO" id="bzptzhjldao"
+		parent="baseDao" />
+	<bean id="bzptzhjlmanager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.hygl.service.BzptZhJlManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.hygl.web.action.BzptZhJlController"
+		name="/bzptzhjl.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.hygl.domain.BzptZhJl</value>
+		</property>
+	</bean>
+	<!-- 外部用户注册 -->
+	<bean class="com.nbw.hygl.dao.BzptUserDao" id="bzptUserDao"
+		parent="baseDao" />
+	<bean id="bzptUserManager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.hygl.service.BzptUserManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.hygl.web.action.BzptUserController"
+		name="/bzptuser.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.sys.domain.SysUsers</value>
+		</property>
+	</bean>
+
+	<!-- 会员提醒-->
+	<bean class="com.nbw.hygl.dao.BzptHyTxDAO" id="bzpthytxdao"
+		parent="baseDao" />
+	<bean id="bzpthytxmanager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.hygl.service.BzptHyTxManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.hygl.web.action.BzptHyTxController"
+		name="/bzpthytx.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.hygl.domain.BzptHyTx</value>
+		</property>
+	</bean>
+
+	<!-- 会员级别-->
+	<bean class="com.nbw.hygl.dao.BzptHyJbDAO" id="bzpthyjbdao"
+		parent="baseDao" />
+	<bean id="bzpthyjbmanager" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.hygl.service.BzptHyJbManager" />
+		</property>
+	</bean>
+	<bean class="com.nbw.hygl.web.action.BzptHyJbController"
+		name="/bzpthyjb.action">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.hygl.domain.BzptHyJb</value>
+		</property>
+	</bean>
+	<!-- 外部接口管理-->
+  <bean class="com.nbw.hygl.dao.OrganizationDao" id="organizationDao"
+		parent="baseDao" />
+	<bean id="organizationService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.nbw.hygl.service.OrganizationManager" />
+		</property>
+	</bean>
+	<!-- organization增删改查-->
+	<bean class="com.nbw.hygl.web.action.OrganizationController"
+		name="/organization.action">
+		<property name="organizationService">
+			<ref bean="organizationService" />
+		</property>
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="sessionForm">
+			<value>false</value>
+		</property>
+		<property name="commandClass">
+			<value>com.nbw.hygl.domain.Organization</value>
+		</property>
+	</bean>
+	
+</beans>
